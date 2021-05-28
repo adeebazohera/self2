@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climates</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Iceberg&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
+</head>
+
+<body>
+
+    <div class="blobs">
+        <div class="blob1"></div>
+        <div class="blob2"></div>
+        <div class="blob3"></div>
+        <div class="blob4"></div>
+    </div>
+    <div class="header">
+        <h1>Climates</h1>
+    </div>
+    <div class="cards">
+        <div class="card" id="rains">
+            <img src="Rain.png" alt="" width="300px" height="300px">
+            <div class="cardcover">
+                <h2>Rainy</h2>
+            </div>
+        </div>
+        <div class="card" id="win">
+            <img src="Winter.png" alt="" width="300px" height="300px">
+            <div class="cardcover">
+                <h2>Winter</h2>
+            </div>
+        </div>
+        <div class="card" id="spi">
+            <img src="Spring.png" alt="">
+            <div class="cardcover">
+                <h2>Spring</h2>
+            </div>
+        </div>
+        <div class="card" id="sum">
+            <img src="Summer.png" alt="">
+            <div class="cardcover">
+                <h2>Summer</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="flakes">
+        <ul>
+            <li><img src="bluesnowflake.png" width="250px" height="250px"></li>
+            <li><img src="bluesnowflake.png" width="250px" height="250px"></li>
+            <li><img src="bluesnowflake.png" width="250px" height="250px"></li>
+            <li><img src="bluesnowflake.png" width="250px" height="250px"></li>
+            <li><img src="bluesnowflake.png" width="250px" height="250px"></li>
+            <li><img src="bluesnowflake.png" width="250px" height="250px"></li>
+            <li><img src="bluesnowflake.png" width="250px" height="250px"></li>
+        </ul>
+    </div>
+    <div class="sakura">
+        <ul>
+            <li><img src="Sakura.png" width="250px" height="250px"></li>
+            <li><img src="sakura2.png" width="250px" height="250px"></li>
+            <li><img src="Sakura.png" width="250px" height="250px"></li>
+            <li><img src="sakura2.png" width="250px" height="250px"></li>
+            <li><img src="Sakura.png" width="250px" height="250px"></li>
+            <li><img src="Sakura.png" width="250px" height="250px"></li>
+            <li><img src="Sakura.png" width="250px" height="250px"></li>
+        </ul>
+    </div>
+
+    <div class="rainy"></div>
+    <div class="sunny"></div>
+
+
+    <script>
+        const winter = document.querySelector("#win");
+        winter.addEventListener('click', () => {
+            const timeline = anime.timeline({
+                duration: 600,
+                easing: 'linear'
+            });
+            timeline.add({
+                targets: ".flakes li",
+                opacity: 1
+            })
+            .add({
+                    targets: ".flakes",
+                    opacity: 1,
+                })
+                .add({
+                    targets: ".blob3",
+                    width: "100%",
+                    height: "100%"
+                })
+                .add({
+                    targets: ".blob1",
+                    opacity: 0
+                })
+                .add({
+                    targets: ".blob2",
+                    opacity: 0
+                })
+                .add({
+                    targets: ".blob4",
+                    opacity: 0,
+                })
+                .add({
+                    targets: ".rainy",
+                    opacity: 0,
+                })
+                .add({
+                    targets: ".header",
+                    backgroundImage: "linear-gradient(rgba(255,255,255,1),rgba(0,0,255,0.8))"
+                })
+                .add({
+                    targets: ".sakura",
+                    opacity: 0
+                })
+                .add({
+                    targets: "body",
+                    backgroundImage: "linear-gradient(rgba(255,255,255,1),rgba(36,211,230,0.9))"
+                })
+        })
+        
+        const summer = document.querySelector("#sum");
+        summer.addEventListener('click', () => {
+            const timeline = anime.timeline({
+                duration: 600,
+                easing: 'linear'
+            });
+            timeline.add({
+                targets: ".flakes",
+                opacity: 0
+            })
+                .add({
+                    targets: ".blob1",
+                    width: "100%",
+                    height: "100%"
+                })
+                .add({
+                    targets: ".blob2",
+                    opacity: 0
+                })
+                .add({
+                    targets: ".blob3",
+                    opacity: 0
+                })
+                .add({
+                    targets: ".blob4",
+                    opacity: 0,
+                })
+                .add({
+                    targets: ".sakura",
+                    opacity: 0
+                })
+                .add({
+                    targets: ".rainy",
+                    opacity: 0,
+                })
+                .add({
+                    targets: ".header",
+                    backgroundImage: "linear-gradient(#F2D21D,#E8B51C)"
+                })
+                .add({
+                    targets: ".sunny",
+                    opacity:1
+                })
+                .add({
+                    targets: "body",
+                    backgroundImage: "linear-gradient(rgba(255,255,255,1),#F2F564)"
+                })
+        })
+        
+        const rain = document.querySelector("#rains");
+        rain.addEventListener('click', () => {
+            const timeline = anime.timeline({
+                duration: 600,
+                easing: 'linear'
+            });
+            timeline.add({
+                targets: ".flakes",
+                opacity: 0
+            })
+                .add({
+                    targets: ".blob4",
+                    width: "100%",
+                    height: "100%"
+                })
+                .add({
+                    targets: ".blob1",
+                    opacity: 0
+                })
+                .add({
+                    targets: ".blob2",
+                    opacity: 0
+                })
+                .add({
+                    targets: ".blob3",
+                    opacity: 0,
+                })
+                .add({
+                    targets: ".sakura",
+                    opacity: 0
+                })
+                .add({
+                    targets: ".rainy",
+                    opacity: 1,
+                })
+                .add({
+                    targets: ".header",
+                    backgroundImage: "linear-gradient(#DB37A7,#FF5999)"
+                })
+                .add({
+                    targets: "body",
+                    backgroundImage: "linear-gradient(rgba(255,255,255,1),#37DB42)"
+                })
+        })
+        
+        const spring = document.querySelector("#spi");
+        spring.addEventListener('click', () => {
+            const timeline = anime.timeline({
+                duration: 600,
+                easing: 'linear'
+            });
+            timeline.add({
+                targets: ".sakura li",
+                opacity: 1
+            })
+                .add({
+                    targets: ".sakura",
+                    opacity: 1
+                })
+                .add({
+                    targets: ".blob2",
+                    width: "100%",
+                    height: "100%"
+                })
+                .add({
+                    targets: ".blob1",
+                    opacity: 0
+                })
+                .add({
+                    targets: ".blob3",
+                    opacity: 0
+                })
+                .add({
+                    targets: ".blob4",
+                    opacity: 0,
+                })
+                .add({
+                    targets: ".header",
+                    backgroundImage: "linear-gradient(#E6E145,#8EE657)"
+                })
+                .add({
+                    targets: ".flakes",
+                    opacity: 0
+                })
+                .add({
+                    targets: "body",
+                    backgroundImage: "linear-gradient(rgba(255,255,255,1),rgba(230,85,215,0.9))"
+                })
+        })
+
+    </script>
+</body>
+
+</html>
